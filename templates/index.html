@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang='es'>
+<head>
+    <meta charset='utf-8'>
+    <meta content='IE=edge' http-equiv='X-UA-Compatible'>
+    <meta content='width=device-width, initial-scale=1, maximum-scale=1' name='viewport'>
+    <meta content='' name='keywords'>
+    <meta content='' name='author'>
+
+    {% include "partials/css.html" %}
+    <title>
+        {% block head_title %}Mapa{% endblock head_title %}
+    </title>
+    <!--[if lt IE 9]> <script src="js/ie8-responsive-file-warning.js"></script> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"> </script><script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script> <![endif]-->
+</head>
+<body class='{% block page_classes %}{% endblock page_classes %}' ng-app="app">
+    {% block content %}{% endblock content %}
+   
+    {% include "partials/js.html" %}
+    
+</body>
+</html>
