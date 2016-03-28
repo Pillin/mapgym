@@ -16,6 +16,10 @@ class BranchOffice(models.Model):
         Direction,
         verbose_name=u'Dirección'
     )
+    is_active = models.BooleanField(
+        default=True,
+        verbose_name='Sucursal activa'
+    )
     order = models.IntegerField(
         default=0,
         verbose_name=u'Orden'
