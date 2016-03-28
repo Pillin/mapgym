@@ -41,7 +41,7 @@ class Commune(models.Model):
     slug = models.SlugField()
 
     def __unicode__(self):
-        return "%s %s" % (self.street, self.number)
+        return "%s" % self.name
 
     class Meta:
         verbose_name = u'Comuna'
@@ -72,6 +72,15 @@ class Direction(models.Model):
         blank=True,
         verbose_name=u'Comuna'
     )
+    lat = models.FloatField(
+        default=0,
+        verbose_name="Latitud"
+    )
+    lng = models.FloatField(
+        default=0,
+        verbose_name="longitud"
+    )
+
     slug = models.SlugField()
 
     def __unicode__(self):

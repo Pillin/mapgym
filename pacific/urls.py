@@ -16,15 +16,24 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.views.generic.base import TemplateView
 
 from branch_office.urls import router as branch_office_router
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api-auth/',
+    url(
+        r'^api-auth/',
         include('rest_framework.urls', namespace='rest_framework')
     ),
     url(r'^api/', include(branch_office_router.urls)),
+    url(
+        r'^mapa/',
+        TemplateView.as_view(template_name='home.html'),
+        name='index'
+    ),
 
 ]
+
+urlpatterns += staticfiles_urlpatterns()
