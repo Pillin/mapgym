@@ -1,33 +1,29 @@
 /*
 * Dependencias
 */
-var gulp = require('gulp'),
-  concat = require('gulp-concat'),
-  uglify = require('gulp-uglify');
-
+var gulp = require('gulp');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
+var useref = require('gulp-useref');
+var gulpif = require('gulp-if');
 /*
 * Configuración de la tarea 'demo'
 */
+var destFolder = 'static'
 
-gulp.task('jsBower', function () {
-    gulp.src('static/bower_components/**/*.min.js')
-    .pipe(concat('bowerComponents.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('build/js'))
+
+gulp.task('minifiedjs', function () {
+    return gulp.src('templates/partials/js.html')
+
+        .pipe(useref({ searchPath: './' }))
+        .pipe(gulpif('*.js', uglify()))
+        .pipe(gulp.dest('static'));
 });
 
 
 
-gulp.task('jsCustom', function () {
-  gulp.src('static/js/**/*.js')
-    .pipe(concat('jsCustom.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('build/js'))
-});
-
-
-gulp.task('default', ['jsBower', 'jsCustom']);
-
+gulp.task('build', ['minifiedjs']);
+gulp.task('default', function (){});
 
 /*
 * Configuración de la tarea 'watch'
@@ -35,6 +31,6 @@ gulp.task('default', ['jsBower', 'jsCustom']);
 
 
 gulp.task('watch', function () {
-    gulp.watch('static/bower_components/**/*.min.js', ['jsBower']);
+    gulp.watch('static/bower_components/**/*.min.js', []);
     gulp.watch('./sass/**/*.scss', ['sass']);
 });
