@@ -14,26 +14,27 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url, include, patterns
 from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.views.generic.base import TemplateView
 
 from branch_office.urls import router as branch_office_router
 
-urlpatterns = [
+urlpatterns = patterns(
+    '',
     url(r'^admin/', admin.site.urls),
+    url(r'^api/', include(branch_office_router.urls)),
     url(
         r'^api-auth/',
         include('rest_framework.urls', namespace='rest_framework')
     ),
-    url(r'^api/', include(branch_office_router.urls)),
     url(
-        r'^mapa/',
+        r'^',
         TemplateView.as_view(template_name='home.html'),
         name='index'
     ),
 
-]
+)
 
-urlpatterns += staticfiles_urlpatterns()
+urlpatterns = staticfiles_urlpatterns() + urlpatterns

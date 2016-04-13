@@ -1,19 +1,14 @@
-{% load static %}
-<!--- Standar libraries : START -->
-<script type="text/javascript" src='{% static "bower_components/jquery/dist/jquery.min.js" %}'></script>
-<script type="text/javascript" src='{% static "bower_components/lodash/dist/lodash.min.js" %}'></script>
-<script type="text/javascript" src='{% static "bower_components/angular/angular.min.js" %}'></script>
-<script type="text/javascript" src='{% static "bower_components/angular-resource/angular-resource.min.js" %}'></script>
-<script type="text/javascript" src='{% static "bower_components/angular-simple-logger/dist/angular-simple-logger.min.js" %}'></script>
-<script type="text/javascript" src='{% static "bower_components/angular-google-maps/dist/angular-google-maps.min.js" %}'></script>
+<!-- build:js ../static/js/combined.js -->
+<script type="text/javascript" src="static/bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="static/bower_components/lodash/dist/lodash.min.js"></script>
+<script type="text/javascript" src="static/bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="static/bower_components/angular-resource/angular-resource.min.js"></script>
+<script type="text/javascript" src="static/bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+<script type="text/javascript" src="static/bower_components/angular-google-maps/dist/angular-google-maps.min.js"></script>
 
-<!--- Standar libraries : END -->
+<script type="text/javascript" src="static/js/services/generic-crud-services.js"></script>
+<script type="text/javascript" src="static/js/services/brandoffice.js"></script>
+<script type="text/javascript" src="static/js/directives/mapa.js"></script>
+<script type="text/javascript" src="static/js/app.js"></script>
 
-<!-- CUSTOM : START -->
-<script type="text/javascript" src='{% static "js/services/generic-crud-services.js" %}?_=1458944401532'></script>
-<script type="text/javascript" src='{% static "js/services/brandoffice.js" %}?_=1458944401532'></script>
-<script type="text/javascript" src='{% static "js/directives/mapa.js" %}?_=1458944401532'></script>
-<script type="text/javascript" src='{% static "js/app.js" %}?_=1458944401532'></script>
-
-
-<!-- CUSTOM : END -->
+<!-- endbuild -->

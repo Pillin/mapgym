@@ -1,6 +1,7 @@
 *.pyc
 db.sqlite3
 static/bower_components/*
+static_prod/*
 node_modules/*
 build/*
 pacific/settings.py

@@ -10,7 +10,7 @@ function mapaDirective(BranchOfficeService) {
 
 
     $scope.getMarkers = function () {
-      BranchOfficeService.query().success(
+      BranchOfficeService.query({}).success(
         function(data){
           var information = data.filter(
             function (elem) {
