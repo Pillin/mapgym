@@ -21,7 +21,8 @@ function mapaDirective(BranchOfficeService) {
             function (elem) {
               return {
                 id: elem.id,
-                title: elem.slug,
+                slug: elem.slug,
+                title: elem.name,
                 latitude: elem.direction.lat,
                 longitude: elem.direction.lng
               }
@@ -39,7 +40,7 @@ function mapaDirective(BranchOfficeService) {
     scope: {
         //@ reads the attribute value, = provides two-way binding, & works with functions
     }, 
-    template: "<ui-gmap-google-map center='map.center' zoom='map.zoom'><ui-gmap-markers ng-if='randomMarkers.length' models='randomMarkers' coords=\"'self'\" icon='icon'></ui-gmap-markers></ui-gmap-google-map>",
+    templateUrl: 'static/templates/mapa.html',
     controller: controllerFunction, //Embed a custom controller in the directive
     link: linkFunction //DOM manipulation
   }
